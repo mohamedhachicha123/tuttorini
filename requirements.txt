@@ -1,0 +1,7 @@
+streamlit==1.38.0
+langchain-community==0.2.16
+langchain-pinecone
+streamlit_antd_components
+langchain_openai
+requests
+dotenv
