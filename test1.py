@@ -13,11 +13,11 @@ import streamlit_antd_components as sac
 load_dotenv()
 
 # Initialize services with direct values
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 model_internquest = genai.GenerativeModel('gemini-1.5-flash', generation_config={"response_mime_type": "application/json"})
 
 # Initialize Pinecone with direct values
-pc = Pinecone(api_key=os.getenv("PINECONE_KEY"))
+pc = Pinecone(api_key=st.secrets["PINECONE_KEY"])
 index = pc.Index("lamjed")
 # Define your page functions
 with open('style.css') as f:
@@ -50,8 +50,8 @@ def home_page():
 
 def setup_embeddings():
     return AzureOpenAIEmbeddings(
-        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        api_key=os.getenv("AZURE_OPENAI_KEY"),
+        azure_endpoint=st.secrets["AZURE_OPENAI_ENDPOINT"],
+        api_key=st.secrets["AZURE_OPENAI_KEY"],
         model="text-embedding-3-small",
         api_version="2024-02-01",
     )
