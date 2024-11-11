@@ -4,7 +4,6 @@ from typing import List
 import os
 from dotenv import load_dotenv
 from pinecone import Pinecone
-import requests
 import google.generativeai as genai
 from langchain_openai import AzureOpenAIEmbeddings
 import base64
